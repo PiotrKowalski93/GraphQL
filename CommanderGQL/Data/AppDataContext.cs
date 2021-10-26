@@ -20,7 +20,7 @@ namespace CommanderGQL.Data
                 .Entity<Platform>()
                 .HasMany(p => p.Commands)
                 .WithOne(p => p.Platform!)
-                .HasForeignKey(p => p.PlatformId);
+                .HasForeignKey(c => c.PlatformId);
 
             modelBuilder
                 .Entity<Command>()
