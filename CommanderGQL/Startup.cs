@@ -36,7 +36,9 @@ namespace CommanderGQL
                 .AddType<CommandType>()
                 .AddFiltering()
                 .AddSorting()
-                .AddMutationType<Mutation>();
+                .AddMutationType<Mutation>()
+                .AddSubscriptionType<Subscription>()
+                .AddInMemorySubscriptions();
                 //.AddProjections();    
         }
 
@@ -47,6 +49,9 @@ namespace CommanderGQL
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // HotChocolade manage connections
+            app.UseWebSockets();
 
             app.UseRouting();
 
