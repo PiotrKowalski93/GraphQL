@@ -12,12 +12,16 @@ namespace CommanderGQL.GraphQL
         [UseDbContext(typeof(AppDataContext))]
         // Work the graph to use 'child' objects
         //[UseProjection]
+        [UseFiltering]
+        [UseSorting]
         public IQueryable<Platform> GetPlatform([ScopedService] AppDataContext context)
         {
             return context.Platforms;
         }
 
         [UseDbContext(typeof(AppDataContext))]
+        [UseFiltering]
+        [UseSorting]
         public IQueryable<Command> GetCommand([ScopedService] AppDataContext context)
         {
             return context.Commands;
